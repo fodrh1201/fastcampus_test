@@ -25,9 +25,10 @@ SECRET_KEY = 'django-insecure-erwvvm@kjs*lwh4bla$8*)%40wkgdogmlk*p8^wo#+=_nmlgg(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['3.38.180.8', 'ec2-3-38-180-8.ap-northeast-2.compute.amazonaws.com']
+ALLOWED_HOSTS = ['3.38.180.8', 'ec2-3-38-180-8.ap-northeast-2.compute.amazonaws.com',
+                 'ELB-50669305.ap-northeast-2.elb.amazonaws.com']
 
-
+# disown -h (ssh 끊어지더라도 게속 돌아감)
 # Application definition
 
 INSTALLED_APPS = [
