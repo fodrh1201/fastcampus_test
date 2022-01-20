@@ -1,19 +1,29 @@
 from django.shortcuts import render
 from pytz import timezone
 from order.models import Shop, Menu, Order, Orderfood
+from user.models import User
 from order.serializers import ShopSerializer, MenuSerializer
 from django.http  import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.utils import timezone
+from pprint import pprint
 
 @csrf_exempt
 def shop(request):
     if request.method == 'GET':
-        shops = Shop.objects.all()
+        # shops = Shop.objects.all()
         # serializer = ShopSerializer(shops, many=True)
         # return JsonResponse(serializer.data, safe=False)
-        return render(request, 'order/shop_list.html', {'shop_list': shops})
+        try:
+            if User.objects.all().get(id=request.session['user_id']).user_type == 0:
+                shops = Shop.objects.all()
+                return render(request, 'order/shop_list.html', {'shop_list': shops})
+            else:
+                return render(request, 'order/fail.html')
+        except:
+            return render(request, 'order/fail.html')
+            
     elif request.method == 'POST':
         data = JSONParser().parse(request)
         serializer = ShopSerializer(data=data)

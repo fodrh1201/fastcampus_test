@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-erwvvm@kjs*lwh4bla$8*)%40wkgdogmlk*p8^wo#+=_nmlgg('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['3.38.180.8', 'ec2-3-38-180-8.ap-northeast-2.compute.amazonaws.com',
                  'elb-1304875898.ap-northeast-2.elb.amazonaws.com', '*']
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'order',
     'boss',
     'delivery',
+    'user',
     'rest_framework'
 ]
 
@@ -80,17 +81,24 @@ WSGI_APPLICATION = 'fastcampus.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'project1',
-        'USER' : 'admin',
-        'PASSWORD':'test1234',
-        'HOST':'database-2.cqsasdy2uxtv.ap-northeast-2.rds.amazonaws.com',
-        'PORT':'3306',
-        'OPTIONS':{
-            'init_command' : "SET sql_mode='STRICT_TRANS_TABLES'"
-        }
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': BASE_DIR / 'db.sqlite3',
     }
+
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'project1',
+#         'USER' : 'admin',
+#         'PASSWORD':'test1234',
+#         'HOST':'database-2.cqsasdy2uxtv.ap-northeast-2.rds.amazonaws.com',
+#         'PORT':'3306',
+#         'OPTIONS':{
+#             'init_command' : "SET sql_mode='STRICT_TRANS_TABLES'"
+#         }
+#     }
+# }
 
 # 데이터베이스 이름 : project1
 # 암호: test1234

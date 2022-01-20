@@ -1,0 +1,3 @@
+sudo apt-get install nginx -y
+sudo pip3 install django
+django-admin stratproject django_nginx
