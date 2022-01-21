@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'fastcampus.urls'
+ROOT_URLCONF = 'fastcampus_test.urls'
 
 TEMPLATES = [
     {
@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'fastcampus.wsgi.application'
+WSGI_APPLICATION = 'fastcampus_test.wsgi.application'
 
 
 # Database
